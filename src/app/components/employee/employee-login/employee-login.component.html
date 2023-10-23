@@ -1,0 +1,27 @@
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 login-container">
+
+            <h2>Login</h2>
+
+            <form #myForm="ngForm" (ngSubmit)="onLogin()">
+
+                <div class="mb-3">
+                    <label for="employeeId">Employee ID<span class="text-danger">  *  </span>:</label>
+                    <input type="number" class="form-control" id="employeeId" name="employeeId" placeholder="Enter your Employee ID" [(ngModel)]="employeeId" required pattern="^\d{1,9}$">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Email<span class="text-danger">  *  </span>:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" [(ngModel)]="email" required [pattern]="EMAIL_PATTERN">
+                </div>
+
+                <div *ngIf="errorAlert" class="alert alert-danger" role="alert">
+                    {{ errorMessage }}
+                </div>
+                <button  [disabled]="!myForm.form.valid" class="btn btn-primary login-btn" type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

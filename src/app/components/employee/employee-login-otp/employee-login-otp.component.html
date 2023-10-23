@@ -1,0 +1,20 @@
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 login-container">
+
+            <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+
+                <div class="mb-3">
+                    <label for="otp">OTP<span class="text-danger">  *  </span>:</label>
+                    <input type="text" class="form-control" id="otp" name="otp" placeholder="Enter OTP" [(ngModel)]="otp" required pattern="^\d{6}$">
+                </div>
+
+                <div *ngIf="errorAlert" class="alert alert-danger" role="alert">
+                    {{ errorMessage }}
+                </div>
+                <button [disabled]="!myForm.form.valid" class="btn btn-primary login-btn" type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

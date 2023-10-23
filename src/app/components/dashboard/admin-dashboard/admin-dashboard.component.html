@@ -1,0 +1,85 @@
+<app-header></app-header>
+
+<div class="d-flex" id="wrapper">
+    
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                <h2 class="fs-2 m-0">Dashboard</h2>
+            </div>
+           
+        </nav>
+
+        <div class="container-fluid px-4">
+            <div class="row g-3 my-2">
+                <div (click)="onCustomers()" class="col-md-3">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <div>
+                            <h3 class="fs-2"></h3>
+                            <p class="fs-5">Customers</p>
+                        </div>
+                        <i  class="fa fa-user fa-beat fs-1 primary-text border rounded-full secondary-bg p-3" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div (click)="onMonthlyBills()" class="col-md-3">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <div>
+                            <h3 class="fs-2"> </h3>
+                            <p class="fs-5">Monthly Bills</p>
+                        </div>
+                        <i class="fa-solid fa-bolt fa-beat fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                    </div>
+                </div>
+
+                <div (click)="onTransactions()" class="col-md-3">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <div>
+                            <p class="fs-5">Transactions</p>
+                        </div>
+                        <i class="fa-solid fa-indian-rupee-sign fa-beat fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-5">
+                <h3 class="fs-4 mb-3">Recent Transactions</h3>
+                <div class="col">
+                  
+                </div>
+            </div>
+
+            
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <th> Transaction ID </th>
+                    <th> Payment Date </th>
+                    <th> Amount </th>
+                    <th> Payment Method </th>
+                    <th> customer ID </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let transaction of transactions.slice().reverse().slice(0, 10)" >
+                        <td> {{ transaction.id }} </td>
+                        <td> {{ transaction.paymentDate }} </td>
+                        <td> {{ transaction.amount }} </td>
+                        <td> {{ transaction.paymentMethod }} </td>
+                        <td> {{ transaction?.monthlyBill?.customer?.customerId }} </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div> 
+
+        </div>
+    </div>
+</div>
+

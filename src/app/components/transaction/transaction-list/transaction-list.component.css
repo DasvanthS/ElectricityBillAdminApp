@@ -1,0 +1,32 @@
+table{
+  width:80%;
+  margin-left: 12%;
+  margin-right: 5%;
+  }
+
+  .main-body {
+    padding-top: 5px;
+    margin: 0 auto;
+    
+  }
+    
+  .action {
+    display: flex;
+    gap: 5px;
+  }
+
+  form{
+    padding: 10px;
+
+  }
+input{
+  width:50%;
+}
+
+.search-container{
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 100;
+}
+
+  

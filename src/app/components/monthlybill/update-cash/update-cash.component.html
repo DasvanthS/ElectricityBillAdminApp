@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<div class="col-md-6 mt-5 offset-md-3">
+    <h4> Update Monthly Bill (Cash Payment) </h4>
+    <form #myForm="ngForm" (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label for="billId">Monthly Bill ID<span class="text-danger">  *  </span>:</label>
+            <input type="text" class ="form-control" id = "billId" [(ngModel)] = "billId" name = "billId" placeholder="Enter Monthly Bill ID" required pattern="^\d{1,9}$">
+        </div>
+        <div *ngIf="alertError" class="alert alert-danger mt-2 mb-2" role="alert">
+            {{ errorMessage }}
+        </div>
+
+        <button class="btn btn-info" [disabled]="!myForm.valid" type ="submit">Submit</button>
+
+        <div *ngIf="isValidBill" class="alert alert-success mt-3" role="alert">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Customer ID:</b> {{monthlyBill.customer.customerId}}</h5>
+                    <p class="card-text"><b>Name:</b> {{monthlyBill.customer.name}}</p>
+                    <p class="card-text"><b>Email:</b> {{monthlyBill.customer.email}}</p>
+                    <p class="card-text"><b>Phone Number:</b> {{monthlyBill.customer.phoneNumber}}</p>
+                    <p class="card-text"><b>Due Date:</b> {{monthlyBill.dueDate}}</p>
+                    <p class="card-text"><b>Unit Consumption:</b> {{monthlyBill.unitConsumption}}</p>
+                    <p class="card-text"><b>Amount:</b> {{monthlyBill.amount}}</p>
+                    <p class="card-text"><b>Paid:</b> {{monthlyBill.paid? 'Paid' : 'Unpaid'}}</p>
+                    <button class="btn btn-success mt-2" (click)="onPay()" type ="submit">Pay</button>
+                </div>
+
+                <div *ngIf="alertPaid" class="alert alert-danger mt-2 mb-2" role="alert">
+                    {{ paidMessage }}
+                </div>
+            </div>
+        </div>
+        
+    </form>
+</div> 

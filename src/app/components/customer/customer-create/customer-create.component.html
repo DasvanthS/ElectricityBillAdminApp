@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<div class="col-md-6 mt-5 offset-md-3">
+    <h4> Create new Customer </h4>
+    <form #myForm="ngForm" (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label for="name">Name<span class="text-danger">  *  </span>:</label>
+            <input type="text" class ="form-control" id = "name" [(ngModel)] = "customer.name" name = "name" placeholder="Enter Name" required pattern="[a-zA-Z ]*">
+        </div>
+
+    
+        <div class="form-group">
+            <label for="email">Email<span class="text-danger">  *  </span>:</label>
+            <input type="email" class ="form-control" id = "email" [(ngModel)] = "customer.email" name = "email" placeholder="Enter Email ID"required [pattern]="EMAIL_PATTERN">
+        </div>
+
+    
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number<span class="text-danger">  *  </span>:</label>
+            <input type="number" class ="form-control" id = "phoneNumber" [(ngModel)] = "customer.phoneNumber" name = "phoneNumber" placeholder="Enter Phone Number" required pattern="^[6-9]\d{9}$">
+        </div>
+
+        <div *ngIf="alertError" class="alert alert-danger" role="alert">
+            {{ errorMessage }}
+        </div>
+    
+        <button class="btn btn-info" [disabled]="!myForm.valid" type ="submit">Submit</button>
+    
+    </form>
+</div> 

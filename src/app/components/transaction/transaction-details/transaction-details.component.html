@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Transaction ID:</b> {{transaction.id}}</h5>
+                    <p class="card-text"><b>Customer ID :</b> {{transaction.monthlyBill.customer.customerId}}</p>
+                    <p class="card-text"><b>Name :</b> {{transaction.monthlyBill.customer.name}}</p>
+                    <p class="card-text"><b>Email :</b> {{transaction.monthlyBill.customer.email}}</p>
+                    <p class="card-text"><b>Phone Number :</b> {{transaction.monthlyBill.customer.phoneNumber}}</p>
+                    <p class="card-text"><b>MonthlyBill ID :</b> {{transaction.monthlyBill.id}}</p>
+                    <p class="card-text"><b>Month :</b> {{transaction.monthlyBill.month}}</p>
+                    <p class="card-text"><b>Unit Consumption : </b> {{transaction.monthlyBill.unitConsumption}}</p>
+                    <p class="card-text"><b>Total Amount :</b> {{transaction.monthlyBill.amount}}</p>
+                    <p class="card-text"><b>Discount : </b> {{transaction.monthlyBill.amount - transaction.amount}}</p>
+                    <p class="card-text"><b>Amount Paid : </b> {{transaction.amount}}</p>
+                    <p class="card-text"><b>Payment Date : </b> {{transaction.paymentDate}}</p>
+                    <p class="card-text"><b>Payment Method : </b> {{transaction.paymentMethod}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

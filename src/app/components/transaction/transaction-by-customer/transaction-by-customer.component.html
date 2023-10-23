@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <br>
+            <br>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <th> Transaction ID </th>
+                    <th> Payment Date </th>
+                    <th> Amount </th>
+                    <th> Payment Method </th>
+                    <th> customer ID </th>
+                    <th> View Details </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let transaction of transactions" >
+                        <td> {{ transaction.id }} </td>
+                        <td> {{ transaction.paymentDate }} </td>
+                        <td> {{ transaction.amount }} </td>
+                        <td> {{ transaction.paymentMethod }} </td>
+                        <td> {{ transaction?.monthlyBill?.customer?.customerId }} </td>
+                        <td> <button (click)="viewTransaction(transaction.id)" class = "btn btn-info" style="margin-left: 10px" >View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div> 

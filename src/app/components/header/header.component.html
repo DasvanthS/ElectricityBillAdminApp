@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-blue  ">
+    <a class="navbar-brand">Bharat Bijili UBP</a>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item p-1">
+          <button class="nav-link" (click)="dashboard()">Dashboard</button>
+          </li>  
+
+        <li class="nav-item p-1">
+          <button class="nav-link" (click)="customers()">Customers</button>
+          </li>  
+
+        <li class="nav-item p-1">
+          <button class="nav-link" (click)="monthlyBills()">Monthly Bill</button>
+        </li>
+
+        <li class="nav-item p-1">
+          <button class="nav-link" (click)="transactions()">Transaction</button>
+        </li>
+
+
+      </ul>
+
+
+      <ul class="navbar-nav ml-auto">
+
+        <h3 class="nav-item mt-2"> Employee ID : </h3>
+        <h3 class="nav-item mr-4 mt-2"> {{ id }}</h3>
+
+        <li class="nav-item ">
+          <button class="btn btn-primary login-btn mt-1" (click)="onLogout()" type="submit">Logout</button>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+
+
+  

@@ -1,0 +1,23 @@
+table{
+  width:80%;
+  margin-left: 10%;
+  margin-right: 5%;
+  }
+    
+  .main-body {
+    padding-top: 20px;
+    margin: 0 auto;
+    
+  }
+    
+  .action {
+    display: flex;
+    gap: 5px;
+  }
+
+  .search-container{
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 100;
+  }
+  

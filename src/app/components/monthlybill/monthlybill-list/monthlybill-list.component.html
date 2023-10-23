@@ -1,0 +1,80 @@
+<app-header></app-header>
+
+ <mat-toolbar>
+    <span class="example-spacer"></span>
+    <button routerLink="addMonthlyBill" class="btn btn-info btn-sm mr-5">Add Monthly Bill</button>
+           
+    <button routerLink="uploadCSV" class="btn btn-info btn-sm mr-5">Upolad CSV</button>
+
+    <button routerLink="updateCash" class="btn btn-info btn-sm mr-5">Update Cash</button>
+</mat-toolbar>
+
+  <div class="main-body">
+
+    <div class="table-container">
+
+      <div class="search-container">
+        <mat-form-field appearance="fill">
+          <input matInput placeholder="search" autocomplete="off" (keyup)="filterData($event)">  
+        </mat-form-field>
+
+        
+      </div>
+
+      <div class="paid">
+        <mat-form-field appearance="fill">
+          <label for="">Sort</label>
+          <mat-select (selectionChange)="onChange($event)">
+            <mat-option value="true">Paid</mat-option>
+            <mat-option value="false">Unpaid</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+     
+      
+        <table mat-table [dataSource]="dataSource" matSort >
+
+            <ng-container matColumnDef="BillID">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Bill ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Month">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Month </th>
+                <td mat-cell *matCellDef="let row"> {{row.month}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="DueDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </th>
+                <td mat-cell *matCellDef="let row"> {{row.dueDate}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="UnitConsumption">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Unit Consumption </th>
+                <td mat-cell *matCellDef="let row"> {{row.unitConsumption}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Amount">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+                <td mat-cell *matCellDef="let row"> {{row.amount}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="CustomerID">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer ID </th>
+                <td mat-cell *matCellDef="let row"> {{row?.customer?.customerId}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Paid">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Paid </th>
+                <td mat-cell *matCellDef="let row"> {{row.paid ? 'Paid' : 'Unpaid'}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="columns"></tr>
+              <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+        
+            </table>
+        
+            <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+          </div>
+        </div>
+  
